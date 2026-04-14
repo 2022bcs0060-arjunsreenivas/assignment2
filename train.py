@@ -14,15 +14,15 @@ import time
 import dagshub
 from mlflow.exceptions import MlflowException
 
+os.environ["MLFLOW_TRACKING_USERNAME"] = "2022bcs0060-arjunsreenivas"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "40f9121076a8b3b6fb330ef8309e821103b4d5d7"
+
 mlflow.set_tracking_uri("https://dagshub.com/2022bcs0060-arjunsreenivas/2022bcs0060-assignment2.mlflow")
 mlflow.set_experiment("churn_prediction")
 
 # -------------------------
 # DagsHub Authentication
 # -------------------------
-os.environ["MLFLOW_TRACKING_USERNAME"] = os.environ["DAGSHUB_USERNAME"]
-os.environ["MLFLOW_TRACKING_PASSWORD"] = os.environ["DAGSHUB_TOKEN"]
-dagshub.init(repo_owner="2022bcs0060-arjunsreenivas", repo_name="2022bcs0060-assignment2", mlflow=True)
 
 
 with mlflow.start_run() as run:
