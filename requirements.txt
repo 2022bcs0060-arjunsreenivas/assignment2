@@ -4,3 +4,4 @@ joblib
 dvc[s3]
 mlflow
 boto3
+dagshub

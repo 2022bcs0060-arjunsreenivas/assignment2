@@ -11,10 +11,19 @@ from sklearn.metrics import classification_report, f1_score
 import joblib
 import os
 import time
+import dagshub
 from mlflow.exceptions import MlflowException
 
 mlflow.set_tracking_uri("https://dagshub.com/2022bcs0060-arjunsreenivas/2022bcs0060-assignment2.mlflow")
 mlflow.set_experiment("churn_prediction")
+
+# -------------------------
+# DagsHub Authentication
+# -------------------------
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.environ["DAGSHUB_USERNAME"]
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.environ["DAGSHUB_TOKEN"]
+dagshub.init(repo_owner="2022bcs0060-arjunsreenivas", repo_name="2022bcs0060-assignment2", mlflow=True)
+
 
 with mlflow.start_run() as run:
     data = pd.read_csv("dataset/telco_customer_churn.csv")
