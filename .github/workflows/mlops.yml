@@ -41,8 +41,10 @@ jobs:
                 echo "MLFLOW_TRACKING_PASSWORD=${{ secrets.DAGSHUB_TOKEN }}" >> $GITHUB_ENV
 
             - name: Train model
-              run: |
-                python train.py
+              env:
+                DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
+                DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
+              run: python train.py
 
             - name: Show metrics in summary
               run: |

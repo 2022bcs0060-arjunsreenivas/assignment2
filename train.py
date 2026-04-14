@@ -71,7 +71,7 @@ with mlflow.start_run() as run:
     joblib.dump(pipeline, "output/model.pkl")
     mlflow.log_artifacts("output")
 
-    mlflow_sklearn.log_model(pipeline, name="model")
+    mlflow_sklearn.log_model(pipeline, artifact_path="model")
 
     print("Training complete with DagsHub tracking.")
     run_id = run.info.run_id
