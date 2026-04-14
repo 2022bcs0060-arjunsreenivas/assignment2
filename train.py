@@ -49,7 +49,7 @@ with mlflow.start_run() as run:
     mlflow.log_param("model", "RandomForest")
     mlflow.log_param("n_estimators", n_estimators)
     mlflow.log_param("test_size", 0.2)
-    mlflow.log_param("dataset size",len(data))
+    mlflow.log_param("dataset size",3521)
 
     pipeline.fit(X_train, y_train)
 
