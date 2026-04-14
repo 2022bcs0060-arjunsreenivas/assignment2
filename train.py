@@ -72,7 +72,7 @@ model_uri = f"runs:/{run_id}/model"
 client = MlflowClient()
 
 try:
-    client.create_registered_model("churn_model")
+    client.create_registered_model("assignment2-churn")
 except Exception:
     pass 
 
@@ -82,7 +82,7 @@ max_retries = 10
 for attempt in range(max_retries):
     try:
         mv = client.create_model_version(
-            name="churn_model",
+            name="assignment2-churn",
             source=artifact_uri,
             run_id=run_id,
         )
